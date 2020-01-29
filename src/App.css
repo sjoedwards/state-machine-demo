@@ -1,3 +1,7 @@
+p {
+  margin: 0;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +39,50 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.App {
+  margin: 0 auto;
+}
+
+.laceup__row {
+  background:black;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.laceup__banner__text {
+  color:white;
+  font-family: 'Heebo', sans-serif;
+  font-size: 40px;
+  margin: 0 20px;
+  flex-basis: 50%;
+}
+
+.laceup__grid-item {
+  flex-basis: 50%;
+  -ms-flex: auto;
+  width: 259px;
+  position: relative;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+@media(max-width: 555px) {
+  .laceup__grid-item {
+    flex-basis: 100%;
+  }
+}
+
+.laceup__search__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height:100%;
+}
+
+.laceup__search__search-box {
+  height: 20px;
+  max-width: 50%;
 }
