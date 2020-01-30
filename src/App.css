@@ -123,6 +123,7 @@ p {
 }
 
 .laceup__race-tile__container {
+  border: 1px solid black;
   height: 250px;
   width: 230px;
   background: black;
