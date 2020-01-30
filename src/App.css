@@ -95,12 +95,17 @@ p {
 }
 
 .laceup__search__search-box {
-  height: 20px;
   max-width: 50%;
 }
 
+.laceup__race-tile__image {
+  background-image: url('https://via.placeholder.com/150');
+  background-size: cover;
+  height: 75%;
+}
+
 .laceup__search__search-box input {
-  padding: 5px;
+  padding: 7px;
   border-radius: 5px;
   border: none;
 }
@@ -131,9 +136,9 @@ p {
 }
 
 .hvr-grow-shadow:hover, .hvr-grow-shadow:focus, .hvr-grow-shadow:active {
-  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 

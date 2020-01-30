@@ -23,31 +23,70 @@ function App() {
 
       <div className="laceup__row">
         <div className="laceup__grid-item--3 laceup__race-tile__wrapper">
-            <div className="laceup__race-tile__container"></div>
+            <div className="laceup__race-tile__container hvr-grow-shadow">
+              <div className="laceup__race-tile__image">
+              </div>
+            </div>
         </div>
         <div className="laceup__grid-item--3 laceup__race-tile__wrapper">
-            <div className="laceup__race-tile__container"></div>
+            <div className="laceup__race-tile__container hvr-grow-shadow">
+              <div className="laceup__race-tile__image">
+              </div>
+            </div>
         </div>
         <div className="laceup__grid-item--3 laceup__race-tile__wrapper">
-            <div className="laceup__race-tile__container"></div>
+            <div className="laceup__race-tile__container hvr-grow-shadow">
+              <div className="laceup__race-tile__image">
+              </div>
+            </div>
         </div>
         <div className="laceup__grid-item--3 laceup__race-tile__wrapper">
-            <div className="laceup__race-tile__container"></div>
+            <div className="laceup__race-tile__container hvr-grow-shadow">
+              <div className="laceup__race-tile__image">
+              </div>
+            </div>
         </div>
         <div className="laceup__grid-item--3 laceup__race-tile__wrapper">
-            <div className="laceup__race-tile__container"></div>
+            <div className="laceup__race-tile__container hvr-grow-shadow">
+              <div className="laceup__race-tile__image">
+              </div>
+            </div>
         </div>
         <div className="laceup__grid-item--3 laceup__race-tile__wrapper">
-            <div className="laceup__race-tile__container"></div>
+            <div className="laceup__race-tile__container hvr-grow-shadow">
+              <div className="laceup__race-tile__image">
+              </div>
+            </div>
         </div>
         <div className="laceup__grid-item--3 laceup__race-tile__wrapper">
-            <div className="laceup__race-tile__container"></div>
+            <div className="laceup__race-tile__container hvr-grow-shadow">
+              <div className="laceup__race-tile__image">
+              </div>
+            </div>
         </div>
         <div className="laceup__grid-item--3 laceup__race-tile__wrapper">
-            <div className="laceup__race-tile__container"></div>
+            <div className="laceup__race-tile__container hvr-grow-shadow">
+              <div className="laceup__race-tile__image">
+              </div>
+            </div>
         </div>
         <div className="laceup__grid-item--3 laceup__race-tile__wrapper">
-            <div className="laceup__race-tile__container"></div>
+            <div className="laceup__race-tile__container hvr-grow-shadow">
+              <div className="laceup__race-tile__image">
+              </div>
+            </div>
+        </div>
+        <div className="laceup__grid-item--3 laceup__race-tile__wrapper">
+            <div className="laceup__race-tile__container hvr-grow-shadow">
+              <div className="laceup__race-tile__image">
+              </div>
+            </div>
+        </div>
+        <div className="laceup__grid-item--3 laceup__race-tile__wrapper">
+            <div className="laceup__race-tile__container hvr-grow-shadow">
+              <div className="laceup__race-tile__image">
+              </div>
+            </div>
         </div>
       </div>
     </div>
