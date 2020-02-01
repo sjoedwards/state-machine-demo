@@ -4,36 +4,12 @@ import LaceUpModal from './components/laceup-modal/laceup-modal'
 import LaceUpBanner from './components/laceup-banner/laceup-banner'
 import LaceUpRaceTile from './components/laceup-race-tile/laceup-race-tile'
 import LaceupLoader from './components/laceup-loader/laceup-loader'
+import store from './store/store'
+import reducer from './reducer/reducer'
 
 const async = window.location.search.match('async')?.length
 
-const races = [
-  {
-    title: 'Test Marathon',
-    distance: {
-      short: '42.2K',
-      long: 'Full Marathon'
-    },
-  }
-]
-
-const initialStore = {
-  modalOpen: false,
-  races: async ? [] : races
-}
-
-const reducer = (state, action) => {
-  switch(action.type) {
-    case 'TOGGLE_MODAL':
-      return {...state, modalOpen: !state.modalOpen}
-    case 'SELECT_RACE':
-      return {...state, modalOpen: !state.modalOpen, selectedRace: state.races[action.payload]}
-    case 'UPDATE_RACES':
-      return {...state, races: [...action.payload]}
-    default:
-      return
-  }
-}
+const initialStore = store(async)
 
 const customStyle = {
   content: {
