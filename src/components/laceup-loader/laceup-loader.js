@@ -1,5 +1,4 @@
 import React from 'react';
-import inverseLogo from '../../logo--invert.svg';
 
 const LaceupLoader = () => {
   return (
@@ -27,10 +26,10 @@ const LaceupLoader = () => {
                 <use
                   href="#laceup__loader__icon--svg--bottom"
                   opacity="1"
-                  fill-opacity="1"
+                  fillOpacity="1"
                   stroke="#ffffff"
-                  stroke-width="2"
-                  stroke-opacity="1"
+                  strokeWidth="2"
+                  strokeOpacity="1"
                 ></use>
               </g>
             </g>
@@ -39,10 +38,10 @@ const LaceupLoader = () => {
                 <use
                   href="#laceup__loader__icon--svg--middle"
                   opacity="1"
-                  fill-opacity="0"
+                  fillOpacity="0"
                   stroke="#ffffff"
-                  stroke-width="2"
-                  stroke-opacity="1"
+                  strokeWidth="2"
+                  strokeOpacity="1"
                 ></use>
               </g>
             </g>
@@ -51,10 +50,10 @@ const LaceupLoader = () => {
                 <use
                   href="#laceup__loader__icon--svg--top"
                   opacity="1"
-                  fill-opacity="0"
+                  fillOpacity="0"
                   stroke="#ffffff"
-                  stroke-width="2"
-                  stroke-opacity="1"
+                  strokeWidth="2"
+                  strokeOpacity="1"
                 ></use>
               </g>
             </g>

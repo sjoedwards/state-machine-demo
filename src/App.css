@@ -12,6 +12,8 @@ body {
 
 .main {
   min-height: 750px;
+  align-items: flex-start;
+  padding-top: 20px
 }
 
 .App-header {
@@ -248,7 +250,7 @@ body {
 }
 
 .laceup__loader__container {
-  padding-top: 250px;
+  padding-top: 25vh;
   display: flex;
   flex-direction: row;
   justify-content: center;

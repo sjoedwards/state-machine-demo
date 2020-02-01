@@ -7,12 +7,12 @@ const LaceupRaceTile = props => {
   return (
     <div className="laceup__grid-item--3 laceup__race-tile__wrapper">
       <div
-        onClick={() => props.toggleModal()}
+        onClick={() => props.selectTile(props.id)}
         className="laceup__race-tile__container hvr-grow-shadow"
       >
         <div className="laceup__race-tile__image"></div>
         <div className="laceup__race-tile__info">
-          <p className="laceup__race-tile__title">Boston Marathon</p>
+          <p className="laceup__race-tile__title">{props?.race?.title}</p>
           <div className="laceup__race-tile__metrics-container">
             <div className="laceup__race-tile__metrics-segment">
               <img
@@ -20,7 +20,7 @@ const LaceupRaceTile = props => {
                 src={distance}
                 alt="distance icon"
               />
-              <p>42.2</p>
+            <p>{props?.race?.distance?.short}</p>
             </div>
             <div className="laceup__race-tile__metrics-segment">
               <img
@@ -28,7 +28,7 @@ const LaceupRaceTile = props => {
                 src={incline}
                 alt="incline icon"
               />
-              <p>8</p>
+              <p>{props?.race?.incline?.score}</p>
             </div>
             <div className="laceup__race-tile__metrics-segment">
               <img
@@ -36,7 +36,7 @@ const LaceupRaceTile = props => {
                 src={star}
                 alt="star icon"
               />
-              <p>9</p>
+              <p>{props?.race?.overall?.score}</p>
             </div>
           </div>
         </div>

@@ -13,7 +13,7 @@ const LaceUpModalMetrics = props => {
           src={distance}
           alt="distance icon"
         />
-        <p className="laceup__modal__metrics-text">{props?.race?.distance?.long} {props?.race?.distance?.short}</p>
+        <p className="laceup__modal__metrics-text">{props?.race?.distance?.long}, {props?.race?.distance?.short}</p>
       </div>
       <div className="laceup__modal__metrics-segment">
         <img
