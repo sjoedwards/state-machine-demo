@@ -10,6 +10,10 @@ body {
   text-align: center;
 }
 
+.main {
+  min-height: 750px;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -241,4 +245,87 @@ body {
   font-family: 'Heebo', sans-serif;
   font-size: 20px;
   padding-bottom: 10px;
+}
+
+.laceup__loader__container {
+  padding-top: 250px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.laceup__loader__icon {
+  width: 60px;
+  border: 10px solid black;
+  border-radius: 5px;
+}
+
+.laceup__loader__icon--svg {
+  stroke-dasharray: 30;
+  width: 60px;
+  height: 100px;
+  border: 10px solid black;
+  border-radius: 5px;
+}
+
+#laceup__loader__icon--svg--top {
+  animation: draw--top 2s infinite;
+}
+
+#laceup__loader__icon--svg--middle {
+  animation: draw--middle 2s infinite;
+}
+
+#laceup__loader__icon--svg--bottom {
+  animation: draw--bottom 2s infinite;
+}
+
+
+@keyframes draw--bottom{
+  0% {
+    stroke-dashoffset: 30;
+  }
+  33% {
+    stroke-dashoffset: 0;
+  }
+  66% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+
+  }
+}
+
+@keyframes draw--middle{
+  0% {
+    stroke-dashoffset: 30;
+  }
+  33% {
+    stroke-dashoffset: 30;
+  }
+  66% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+
+  }
+}
+
+@keyframes draw--top{
+  0% {
+    stroke-dashoffset: 30;
+  }
+  33% {
+    stroke-dashoffset: 30;
+  }
+  66% {
+    stroke-dashoffset: 30;
+  }
+  100% {
+    stroke-dashoffset: 0;
+
+  }
 }
