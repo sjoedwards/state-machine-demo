@@ -22,7 +22,8 @@ const LaceUpModalMetrics = props => {
           alt="incline icon"
         />
         <p className="laceup__modal__metrics-text">
-          8/10 - Unrelenting Rolling Hills
+          {/* 8/10 - Unrelenting Rolling Hills */}
+          {props?.race?.incline?.score} {props?.race?.incline?.description}
         </p>
       </div>
       <div className="laceup__modal__metrics-segment">
@@ -32,7 +33,7 @@ const LaceUpModalMetrics = props => {
           alt="star icon"
         />
         <p className="laceup__modal__metrics-text">
-          9/10 - Fanstasic course and experience
+          {props?.race?.overall?.score} {props?.race?.overall?.description}
         </p>
       </div>
     </div>

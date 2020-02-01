@@ -18,8 +18,8 @@ const LaceUpModal = props => {
       <div className="laceup__row">
         <div className="laceup__modal__container">
           <div className="laceup__row">
-            <LaceUpModalImage src='https://via.placeholder.com/150' />
-            <LaceUpModalMetrics />
+            <LaceUpModalImage race={props.race} />
+            <LaceUpModalMetrics race={props.race} />
           </div>
           <div className="laceup__row">
             <LaceUpModalDescription />
