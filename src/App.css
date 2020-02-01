@@ -2,6 +2,10 @@ p {
   margin: 0;
 }
 
+body {
+  min-width: 320px;
+}
+
 .App {
   text-align: center;
 }
@@ -17,19 +21,6 @@ p {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .App {
   margin: 0 auto;
 }
@@ -38,6 +29,7 @@ p {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  width: 100%;
 }
 
 .laceup__logo {
@@ -59,8 +51,15 @@ p {
   margin: 0 20px;
 }
 
+.laceup__grid-item {
+  -ms-flex: auto;
+  position: relative;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
 .laceup__grid-item--2 {
-  min-width: 500px;
+  min-width: 320px;
   -ms-flex: auto;
   flex-basis: 50%;
   position: relative;
@@ -72,7 +71,7 @@ p {
   min-width: 250px;
   -ms-flex: auto;
   position: relative;
-  padding: 10px;
+  padding: 20px;
   box-sizing: border-box;
 }
 
@@ -169,4 +168,77 @@ p {
   transform: scale(1.05);
 }
 
+.ReactModal__Overlay {
+  width: 100vw;
+  min-width: 320px;
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  margin: none;
+}
 
+.ReactModal__Overlay--after-open{
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+  opacity: 0;
+}
+
+.laceup__modal__container {
+  width: 100%;
+  min-width: 250px;
+  background: black;
+  max-width: 600px;
+}
+
+.laceup__modal__image {
+  background-image: url('https://via.placeholder.com/150');
+  background-size: cover;
+  height: 200px;
+  width: 200px;
+  margin: 20px
+}
+
+.laceup__modal__metrics-container {
+  color: white;
+  min-width: 250px;
+  text-align:center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.laceup__modal__title {
+  color:white;
+  font-family: 'Heebo', sans-serif;
+  font-size: 30px;
+  margin: 0 20px;
+  text-align: center;
+}
+
+.laceup__modal__metrics-segment {
+  min-width: 150px;
+  padding: 10px;
+  display: flex;
+}
+
+.laceup__modal__metrics-text {
+  text-align: left;
+}
+
+.laceup__modal__description-container {
+  color: white;
+  max-width: 500px;
+  padding: 20px;
+}
+
+.laceup__modal__description-title {
+  font-family: 'Heebo', sans-serif;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
