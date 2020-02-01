@@ -121,7 +121,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  height: 100%
+  height: 100%;
 }
 
 .laceup__race-tile__metrics-segment {
@@ -222,6 +222,7 @@ body {
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
+  max-width: 300px
 }
 .laceup__modal__title {
   color:white;

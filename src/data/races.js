@@ -82,7 +82,7 @@ const races = [
   },
   {
     title: 'Paris Marathon',
-    image:'/paris-marathon',
+    image:'/paris-marathon.jpg',
     distance: {
       short: '42.2K',
       long: 'Full Marathon'
@@ -113,51 +113,51 @@ const races = [
     }
   },
   {
-    title: '',
-    image:'/',
+    title: 'The Marathon du Médoc',
+    image: '/marathon-du-medoc.jpg',
     distance: {
-      short: '',
-      long: ''
+      short: '42.2K',
+      long: 'Full Marathon'
     },
     incline: {
-      description: '',
-      score: 0,
+      description: 'Its mostly flat (hiccup)',
+      score: 3,
     },
     overall: {
-      description: '',
-      score: 0,
+      description: 'WINE',
+      score: 10,
     }
   },
   {
-    title: '',
-    image:'/',
+    title: 'Chester Marathon',
+    image:'/chester-marathon.jpg',
     distance: {
-      short: '',
-      long: ''
+      short: '42.2K',
+      long: 'Full Marathon'
     },
     incline: {
-      description: '',
-      score: 0,
+      description: 'Very flat!',
+      score: 2,
     },
     overall: {
-      description: '',
-      score: 0,
+      description: 'Slightly boring scenery, but great crowds',
+      score: 6,
     }
   },
   {
-    title: '',
-    image:'/',
+    title: 'Bath Half Marathon',
+    image:'/bath-half-marathon.jpg',
     distance: {
-      short: '',
-      long: ''
+      short: '21.1K',
+      long: 'Half Marathon'
     },
     incline: {
-      description: '',
-      score: 0,
+      description: 'Suprisingly, a very fast and flat course!',
+      score: 4,
     },
     overall: {
-      description: '',
-      score: 0,
+      description: 'Lovely cultural centre to run through and great crowds',
+      score: 7,
     }
   },
 ]
