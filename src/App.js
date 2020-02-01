@@ -6,6 +6,7 @@ import LaceUpRaceTile from './components/laceup-race-tile/laceup-race-tile'
 import LaceupLoader from './components/laceup-loader/laceup-loader'
 import store from './store/store'
 import reducer from './reducer/reducer'
+import races from './data/races'
 
 const async = window.location.search.match('async')?.length
 
@@ -37,15 +38,7 @@ function App() {
 
         return async && setTimeout(() => {
           resolve(
-            dispatch({type: 'UPDATE_RACES', payload: [
-                {
-                  title: 'Test Marathon',
-                  distance: {
-                    short: '42.2K',
-                    long: 'Full Marathon'
-                  },
-                }
-              ]
+            dispatch({type: 'UPDATE_RACES', payload: races
             })
           )
         }, 3000);

@@ -2,6 +2,7 @@ import React from 'react';
 import star from '../../star.svg'
 import incline from '../../incline.svg'
 import distance from '../../distance.svg'
+import LaceUpRaceTileImage from './lace-up-race-tile-image/lace-up-race-tile-image'
 
 const LaceupRaceTile = props => {
   return (
@@ -10,7 +11,7 @@ const LaceupRaceTile = props => {
         onClick={() => props.selectTile(props.id)}
         className="laceup__race-tile__container hvr-grow-shadow"
       >
-        <div className="laceup__race-tile__image"></div>
+        <LaceUpRaceTileImage race={props.race} />
         <div className="laceup__race-tile__info">
           <p className="laceup__race-tile__title">{props?.race?.title}</p>
           <div className="laceup__race-tile__metrics-container">

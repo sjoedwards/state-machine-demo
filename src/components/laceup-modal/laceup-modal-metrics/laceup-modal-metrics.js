@@ -13,7 +13,7 @@ const LaceUpModalMetrics = props => {
           src={distance}
           alt="distance icon"
         />
-        <p className="laceup__modal__metrics-text">{props?.race?.distance?.long}, {props?.race?.distance?.short}</p>
+        <p className="laceup__modal__metrics-text">{props?.race?.distance?.short}, {props?.race?.distance?.long}</p>
       </div>
       <div className="laceup__modal__metrics-segment">
         <img
@@ -22,8 +22,7 @@ const LaceUpModalMetrics = props => {
           alt="incline icon"
         />
         <p className="laceup__modal__metrics-text">
-          {/* 8/10 - Unrelenting Rolling Hills */}
-          {props?.race?.incline?.score} {props?.race?.incline?.description}
+          {props?.race?.incline?.score}, {props?.race?.incline?.description}
         </p>
       </div>
       <div className="laceup__modal__metrics-segment">
@@ -33,7 +32,7 @@ const LaceUpModalMetrics = props => {
           alt="star icon"
         />
         <p className="laceup__modal__metrics-text">
-          {props?.race?.overall?.score} {props?.race?.overall?.description}
+          {props?.race?.overall?.score}, {props?.race?.overall?.description}
         </p>
       </div>
     </div>
