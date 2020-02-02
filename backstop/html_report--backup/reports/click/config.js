@@ -4,7 +4,7 @@ report({
     {
       "pair": {
         "reference": "../../reference/laceup_default_BackstopJS_Homepage_0_body_0_default.png",
-        "test": "../../results/20200202-153534/laceup_default_BackstopJS_Homepage_0_body_0_default.png",
+        "test": "../../results/20200202-182338/laceup_default_BackstopJS_Homepage_0_body_0_default.png",
         "selector": "body",
         "fileName": "laceup_default_BackstopJS_Homepage_0_body_0_default.png",
         "label": "BackstopJS Homepage",
@@ -25,11 +25,11 @@ report({
     },
     {
       "pair": {
-        "reference": "../../reference/laceup_default_BackstopJS_Homepage_--_Hover_0_body_0_default.png",
-        "test": "../../results/20200202-153534/laceup_default_BackstopJS_Homepage_--_Hover_0_body_0_default.png",
+        "reference": "../../reference/laceup_default_BackstopJS_Homepage_--_Click_0_body_0_default.png",
+        "test": "../../results/20200202-182338/laceup_default_BackstopJS_Homepage_--_Click_0_body_0_default.png",
         "selector": "body",
-        "fileName": "laceup_default_BackstopJS_Homepage_--_Hover_0_body_0_default.png",
-        "label": "BackstopJS Homepage -- Hover",
+        "fileName": "laceup_default_BackstopJS_Homepage_--_Click_0_body_0_default.png",
+        "label": "BackstopJS Homepage -- Click",
         "misMatchThreshold": 0.1,
         "url": "http://localhost:3000",
         "expect": 0,
@@ -40,10 +40,10 @@ report({
             "width": 0,
             "height": 0
           },
-          "misMatchPercentage": "1.84",
-          "analysisTime": 58
+          "misMatchPercentage": "35.16",
+          "analysisTime": 66
         },
-        "diffImage": "../../results/20200202-153534/failed_diff_laceup_default_BackstopJS_Homepage_--_Hover_0_body_0_default.png"
+        "diffImage": "../../results/20200202-182338/failed_diff_laceup_default_BackstopJS_Homepage_--_Click_0_body_0_default.png"
       },
       "status": "fail"
     }

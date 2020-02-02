@@ -25,3 +25,4 @@ yarn-error.log*
 #backstop
 
 backstop/results
+backstop/html_reports

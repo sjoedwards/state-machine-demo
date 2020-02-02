@@ -1,4 +1,4 @@
-report({
+{
   "testSuite": "BackstopJS",
   "tests": [
     {
@@ -25,4 +25,4 @@ report({
     }
   ],
   "id": "laceup_default"
-});
+}

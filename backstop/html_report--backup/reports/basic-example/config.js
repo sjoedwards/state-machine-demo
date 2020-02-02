@@ -4,7 +4,7 @@ report({
     {
       "pair": {
         "reference": "../../reference/laceup_default_BackstopJS_Homepage_0_body_0_default.png",
-        "test": "../../results/20200202-153452/laceup_default_BackstopJS_Homepage_0_body_0_default.png",
+        "test": "../../results/20200202-182235/laceup_default_BackstopJS_Homepage_0_body_0_default.png",
         "selector": "body",
         "fileName": "laceup_default_BackstopJS_Homepage_0_body_0_default.png",
         "label": "BackstopJS Homepage",

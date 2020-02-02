@@ -4,7 +4,7 @@ report({
     {
       "pair": {
         "reference": "../../reference/laceup_default_BackstopJS_Homepage_Multi_Viewports_0_document_0_default.png",
-        "test": "../../results/20200202-150127/laceup_default_BackstopJS_Homepage_Multi_Viewports_0_document_0_default.png",
+        "test": "../../results/20200202-182242/laceup_default_BackstopJS_Homepage_Multi_Viewports_0_document_0_default.png",
         "selector": "document",
         "fileName": "laceup_default_BackstopJS_Homepage_Multi_Viewports_0_document_0_default.png",
         "label": "BackstopJS Homepage Multi Viewports",
@@ -26,7 +26,7 @@ report({
     {
       "pair": {
         "reference": "../../reference/laceup_default_BackstopJS_Homepage_Multi_Viewports_0_document_1_tablet.png",
-        "test": "../../results/20200202-150127/laceup_default_BackstopJS_Homepage_Multi_Viewports_0_document_1_tablet.png",
+        "test": "../../results/20200202-182242/laceup_default_BackstopJS_Homepage_Multi_Viewports_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "laceup_default_BackstopJS_Homepage_Multi_Viewports_0_document_1_tablet.png",
         "label": "BackstopJS Homepage Multi Viewports",
@@ -48,7 +48,7 @@ report({
     {
       "pair": {
         "reference": "../../reference/laceup_default_BackstopJS_Homepage_Multi_Viewports_0_document_2_phone.png",
-        "test": "../../results/20200202-150127/laceup_default_BackstopJS_Homepage_Multi_Viewports_0_document_2_phone.png",
+        "test": "../../results/20200202-182242/laceup_default_BackstopJS_Homepage_Multi_Viewports_0_document_2_phone.png",
         "selector": "document",
         "fileName": "laceup_default_BackstopJS_Homepage_Multi_Viewports_0_document_2_phone.png",
         "label": "BackstopJS Homepage Multi Viewports",
