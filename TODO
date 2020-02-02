@@ -1,11 +1,12 @@
 TODO
 
 - [X] Create modal for overlay information
-- [ ] Create actual data for the racees
+- [X] Create actual data for the racees
 - [X] Add async loader
+- [X] Made code public
 - [ ] Create backstop scenarios and put in pres
+  - [ ] Complete
 - [ ] Come up with advanced situations
 - [ ] Tidy up README.md on github
-- [ ] Made code public
 - [ ] Transfer over to other computer and setup
 - [ ] Practice!
