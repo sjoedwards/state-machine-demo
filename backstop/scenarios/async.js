@@ -10,6 +10,6 @@ module.exports = [
     "url": "http://localhost:3000?async",
     "misMatchThreshold" : 0.1,
     "selectors": ["body"],
-    delay: 3000
+    "delay": 3000
   }
 ]
