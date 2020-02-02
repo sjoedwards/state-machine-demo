@@ -8,7 +8,7 @@ const LaceupRaceTile = props => {
   return (
     <div className="laceup__grid-item--3 laceup__race-tile__wrapper">
       <div
-        onClick={() => props.selectTile(props.id)}
+        onClick={() => props.selectTile(props.id)} id={`race-tile__${props.id}`}
         className="laceup__race-tile__container hvr-grow-shadow"
       >
         <LaceUpRaceTileImage race={props.race} />

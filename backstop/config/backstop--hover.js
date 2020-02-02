@@ -1,4 +1,4 @@
-const Scenarios = require('../scenarios/basic-example');
+const Scenarios = require('../scenarios/hover');
 
 module.exports = {
   id: 'laceup_default',
@@ -15,9 +15,10 @@ module.exports = {
     bitmaps_reference: 'backstop/reference',
     bitmaps_test: 'backstop/results',
     engine_scripts: 'backstop/engine_scripts',
-    html_report: 'backstop/html_report/basic-example',
+    html_report: 'backstop/html_report/hover',
     ci_report: 'backstop/ci_report'
   },
   report: ['browser'],
-  engine: 'puppeteer'
+  engine: 'puppeteer',
+  "onReadyScript": "puppet/onReady.js",
 };

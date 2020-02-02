@@ -5,9 +5,10 @@ TODO
 - [X] Add async loader
 - [X] Made code public
 - [ ] Create backstop scenarios and put in pres
-  - [ ] Complete
 - [ ] Try timing, aiming for 22 mins
 - [ ] Add a slide on CI
+- [ ] Add a slide on the actual code which looks for a threshold? Dig into the canvas API?
+- [ ] Can also demo debug mode
 - [ ] Tidy up README.md on github
 - [ ] Transfer over to other computer and setup
 - [ ] Practice!
