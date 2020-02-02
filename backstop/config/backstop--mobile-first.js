@@ -14,7 +14,7 @@ module.exports = {
     bitmaps_reference: 'backstop/reference',
     bitmaps_test: 'backstop/results',
     engine_scripts: 'backstop/engine_scripts',
-    html_report: 'backstop/html_report',
+    html_report: 'backstop/html_report/mobile-first',
     ci_report: 'backstop/ci_report'
   },
   report: ['browser'],
