@@ -13,10 +13,10 @@ module.exports = [
     "delay": 1000
   },
   {
-    "label": "BackstopJS Homepage -- Async -- Wait for Selector",
+    "label": "BackstopJS Homepage -- Async -- Wait for Event",
     "url": "http://localhost:3000?async",
     "misMatchThreshold" : 0.1,
     "selectors": ["body"],
-    "readySelector": ".laceup__race-tile__container",
+    "readyEvent": "Content Loaded",
   }
 ]

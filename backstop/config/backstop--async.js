@@ -1,4 +1,4 @@
-const Scenarios = require('../scenarios/async-I');
+const Scenarios = require('../scenarios/async');
 
 module.exports = {
   id: 'laceup_default',

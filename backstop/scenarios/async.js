@@ -1,12 +1,12 @@
 module.exports = [
   {
-    "label": "BackstopJS Homepage Async",
+    "label": "BackstopJS Homepage -- Async",
     "url": "http://localhost:3000?async",
     "misMatchThreshold" : 0.1,
     "selectors": ["body"]
   },
   {
-    "label": "BackstopJS Homepage Async Delay",
+    "label": "BackstopJS Homepage -- Async -- Delay",
     "url": "http://localhost:3000?async",
     "misMatchThreshold" : 0.1,
     "selectors": ["body"],

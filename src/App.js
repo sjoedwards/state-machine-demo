@@ -47,6 +47,7 @@ function App() {
 
   const renderRaceTiles = () => {
     return state.races.map((race, index) => {
+      console.log('Content Loaded')
       return (
         <LaceUpRaceTile key={index} id={index} race={race} selectTile={(id) => dispatch({ type: 'SELECT_RACE', payload: id })}/>
       )
