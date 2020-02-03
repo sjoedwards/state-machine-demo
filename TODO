@@ -4,13 +4,11 @@ TODO
 - [X] Create actual data for the racees
 - [X] Add async loader
 - [X] Made code public
-- [ ] Create backstop scenarios and put in pres
-- [ ] Try timing, aiming for 22 mins
-- [ ] Add a slide on CI
-- [ ] Add a slide on the actual code which looks for a threshold? Dig into the canvas API?
-- [ ] Can also demo debug mode
-- [ ] Could do a slide revisiting the original hard spot the difference - or refactor to show backstop getting the right
-result
-- [ ] Tidy up README.md on github
+- [X] Create backstop scenarios and put in pres
+- [X] QR code
 - [ ] Transfer over to other computer and setup
+- [ ] Tidy up README.md on github
+- [ ] Read over canvas API
 - [ ] Practice!
+- [ ] Try timing, aiming for 22 mins
+- [ ] Make checklist for presention

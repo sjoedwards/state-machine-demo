@@ -1,6 +1,6 @@
 # Visual Regression Demo
 
-# Local setup
+## Local setup
 
 ```
 $ cd visual-regression-demo
@@ -10,10 +10,10 @@ $ yarn run start
 
 Navigate to `http://localhost:3000` or `http://localhost:3000?async` for async version
 
-# Backstop Setup
+## Backstop Setup
 
 ```
 $ npm i backstopjs -g
 ```
 
-# Run Backstop JS Scenarios
+## Run Backstop JS Scenarios
