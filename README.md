@@ -24,22 +24,22 @@ All the below are run from `visual-regression-demo`
 
 ### Basic Example
 
-backstop test --config backstop/config/backstop--basic-example.js
+`backstop test --config backstop/config/backstop--basic-example.js`
 
 ### Mobile First
-backstop test --config backstop/config/backstop--mobile-first.js
+`backstop test --config backstop/config/backstop--mobile-first.js`
 
 ### Async
-backstop test --config backstop/config/backstop--async.js
+`backstop test --config backstop/config/backstop--async.js`
 
 ### AsyncII
-backstop test --config backstop/config/backstop--asyncII.js
+`backstop test --config backstop/config/backstop--asyncII.js`
 
 ### AsyncIII
-backstop test --config backstop/config/backstop--asyncIII.js
+`backstop test --config backstop/config/backstop--asyncIII.js`
 
 ### Hover
-backstop test --config backstop/config/backstop--hover.js
+`backstop test --config backstop/config/backstop--hover.js`
 
 ### Click
-backstop test --config backstop/config/backstop--click.js
+`backstop test --config backstop/config/backstop--click.js`
