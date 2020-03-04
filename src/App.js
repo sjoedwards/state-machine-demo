@@ -1,14 +1,5 @@
-import React, { useReducer, useEffect } from 'react';
+import React from 'react'
 import './App.css';
-import LaceUpModal from './components/laceup-modal/laceup-modal'
-import LaceUpBanner from './components/laceup-banner/laceup-banner'
-import LaceUpRaceTile from './components/laceup-race-tile/laceup-race-tile'
-import LaceupLoader from './components/laceup-loader/laceup-loader'
-import store from './store/store'
-import reducer from './reducer/reducer'
-import races from './data/races'
-
-const async = window.location.search.match('async')?.length
 
 const initialStore = store(async)
 
