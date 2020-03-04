@@ -10,26 +10,42 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  margin: 0 auto;
+  min-height: 750px;
+
 }
 
-.main {
-  min-height: 750px;
+main {
   align-items: flex-start;
   padding-top: 20px;
   max-width: 900px
 }
 
-.App {
-  margin: 0 auto;
-}
-
-.laceup__row {
+.generic__row {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
+  
 }
+
+.machine__state-item__wrapper {
+  -ms-flex: auto;
+  position: relative;
+  padding: 10px;
+  box-sizing: border-box;
+  height:150px;
+  width:150px;
+  border: 3px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Not used */
 
 .laceup__logo {
   display: inline-block
@@ -50,12 +66,7 @@ body {
   margin: 0 20px;
 }
 
-.laceup__grid-item {
-  -ms-flex: auto;
-  position: relative;
-  padding: 10px;
-  box-sizing: border-box;
-}
+
 
 .laceup__grid-item--2 {
   min-width: 320px;
