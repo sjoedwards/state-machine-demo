@@ -1,7 +1,7 @@
-import SimpleMachine from './simpleMachine/SimpleMachine'
-import NestedMachine from './nestedMachine/NestedMachine'
-import ParallelMachine from './parallelMachine/ParallelMachine'
-import LaceUpMachine from './laceUpMachine/LaceUpMachine'
+import SimpleMachine from './simpleMachine/SimpleMachineApp'
+import NestedMachine from './nestedMachine/NestedMachineApp'
+import ParallelMachineApp from './parallelMachine/ParallelMachineApp'
+import LaceUpMachineApp from './laceUpMachine/LaceUpMachineApp'
 
 
-export {SimpleMachine, NestedMachine, ParallelMachine, LaceUpMachine}
+export {SimpleMachine, NestedMachine, ParallelMachineApp, LaceUpMachineApp}
