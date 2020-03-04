@@ -1,4 +1,4 @@
-# Visual Regression Demo
+# State Machine Demo
 
 ## Introduction
 
