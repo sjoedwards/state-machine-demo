@@ -1,20 +1,22 @@
-import React from 'react'
-import MachineBlock from '../../components/MachineBlock/MachineBlock'
-import '../../App.css'
+import React, { useState } from 'react';
+import { useMachine } from '@xstate/react';
+import SimpleMachine from '../../machines/SimpleMachine';
 
-const states = [
-  {name: '1', initial: true },
-  {name: '2'},
-  {name: '3'},
-  {name: '4', final: true},
-]
 
-const SimpleMachine = () => (
-  <main className='App'>
-    <div className="generic__row">
-      <MachineBlock states={states} />
-    </div>
-  </main>
-);
+import MachineBlock from '../../components/MachineBlock/MachineBlock';
+import '../../App.css';
 
-export default SimpleMachine
+const SimpleMachineApp = () => {
+  const [current, send] = useMachine(SimpleMachine, { devTools: true });
+  const [machineStates] = useState(current.configuration[0].states);
+
+  return (
+    <main className="App">
+      <div className="generic__row">
+        <MachineBlock currentValue={current.value} states={machineStates} send={((event: any) => send(event))} />
+      </div>
+    </main>
+  );
+};
+
+export default SimpleMachineApp;
