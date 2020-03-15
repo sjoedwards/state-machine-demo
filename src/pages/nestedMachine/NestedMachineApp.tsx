@@ -1,7 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { useMachine } from '@xstate/react';
+import NestedMachine from '../../machines/nestedMachine';
 
-const NestedMachine = () => (
-  <div>NestedMachine</div>
-);
 
-export default NestedMachine
+import MachineBlock from '../../components/MachineBlock/MachineBlock';
+import '../../App.css';
+
+const SimpleMachineApp = () => {
+  const [current, send] = useMachine(NestedMachine, { devTools: true });
+  const [machineStates] = useState(current.configuration[0].states);
+  return (
+    <main className="App">
+      <div className="generic__row">
+        <MachineBlock currentValue={current.value} states={machineStates} send={((event: any) => send(event))} />
+      </div>
+    </main>
+  );
+};
+
+export default SimpleMachineApp;
