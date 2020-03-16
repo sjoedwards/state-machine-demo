@@ -4,9 +4,9 @@ import { MachineBlockProps } from '../types/MachineBlockProps';
 import renderStateItems from '../util/renderStateItems';
 
 
-const MachineBlock = ({ states, send, currentValue }: MachineBlockProps) => (
+const MachineBlock = ({ states, send, currentMatches }: MachineBlockProps) => (
   <div className="generic__row">
-    {renderStateItems({ states, send, currentValue })}
+    {renderStateItems({ states, send, currentMatches })}
   </div>
 );
 

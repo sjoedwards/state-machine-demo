@@ -1,8 +1,9 @@
-import { StateNodeConfig, StateValue } from 'xstate';
+import { StateNodesConfig, StateNode, StateValue } from 'xstate';
+import React from 'react';
 import renderStateItems from './renderStateItems';
+import { MachineBlockProps } from '../types/MachineBlockProps';
 
 
-export default (config : StateNodeConfig<any, any, any>, currentValue: StateValue) => {
-  console.log(config.states);
-  renderStateItems({ states: config.states, send: () => true, currentValue });
-};
+export default ({ states, send, currentMatches } : MachineBlockProps) => (
+  renderStateItems({ states, send, currentMatches })
+);

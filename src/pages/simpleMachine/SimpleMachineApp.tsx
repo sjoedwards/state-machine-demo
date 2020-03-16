@@ -13,7 +13,7 @@ const SimpleMachineApp = () => {
   return (
     <main className="App">
       <div className="generic__row">
-        <MachineBlock currentValue={current.value} states={machineStates} send={((event: any) => send(event))} />
+        <MachineBlock currentMatches={current.matches} states={machineStates} send={((event: any) => send(event))} />
       </div>
     </main>
   );
