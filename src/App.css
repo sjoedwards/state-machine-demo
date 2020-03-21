@@ -4,6 +4,7 @@ p {
 
 body {
   min-width: 320px;
+  font-size: 20px;
 }
 
 .App {
@@ -26,7 +27,7 @@ main {
 .generic__row {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 100%;
   
@@ -36,13 +37,27 @@ main {
   -ms-flex: auto;
   position: relative;
   padding: 10px;
+  margin: 20px;
   box-sizing: border-box;
-  min-height:150px;
+  min-height:500px;
   min-width:150px;
   border: 3px solid black;
+  border-radius:  8px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  flex-basis: 100%;
+}
+
+.machine__button > button {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid black
+}
+
+.machine__button > button:hover {
+  background: lightgreen;
 }
 
 .active {

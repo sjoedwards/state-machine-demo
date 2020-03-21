@@ -3,7 +3,6 @@ import { useMachine } from '@xstate/react';
 import NestedMachine from '../../machines/nestedMachine';
 
 
-import MachineBlock from '../../components/MachineBlock/MachineBlock';
 import '../../App.css';
 
 const SimpleMachineApp = () => {
@@ -12,7 +11,7 @@ const SimpleMachineApp = () => {
   return (
     <main className="App">
       <div className="generic__row">
-        <MachineBlock currentMatches={current.matches} states={machineStates} send={((event: any) => send(event))} />
+        {/* <MachineBlock currentMatches={current.matches} states={machineStates} send={((event: any) => send(event))} /> */}
       </div>
     </main>
   );

@@ -1,4 +1,4 @@
-import { Machine } from 'xstate';
+import { Machine, assign } from 'xstate';
 
 const simpleMachine = Machine({
   id: 'nestedMachine',
@@ -26,7 +26,9 @@ const simpleMachine = Machine({
           type: 'final',
         },
       },
-      onDone: 'two',
+      onDone: {
+        target: 'success',
+      },
     },
     two: {
       on: {

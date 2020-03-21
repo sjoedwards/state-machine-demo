@@ -50,7 +50,9 @@ module.exports = {
         "rules": {
             "react/prop-types": "off",
             "no-unused-vars": ["off"],
-            "no-undef": ["off"]
+            "no-undef": ["off"],
+            "react/jsx-one-expression-per-line": [false]
+
         }
     }
 ]
