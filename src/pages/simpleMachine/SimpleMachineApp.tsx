@@ -8,7 +8,6 @@ import '../../App.css';
 
 const SimpleMachineApp = () => {
   const [current, send] = useMachine(SimpleMachine, { devTools: true });
-  const [machineStates] = useState(current.configuration[0].states);
 
   return (
     <main className="App">
