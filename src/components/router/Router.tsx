@@ -6,7 +6,7 @@ import {
   Redirect
 } from "react-router-dom";
 
-import {SimpleMachineApp, InvokeMachineApp, NestedMachineApp, ParallelMachineApp, LaceUpMachineApp} from '../../pages'
+import {SimpleMachineApp, InvokeMachineApp, HierarchicalMachineApp, ParallelMachineApp, LaceUpMachineApp} from '../../pages'
 
 const Router = () => (
 <BrowserRouter>
@@ -17,8 +17,8 @@ const Router = () => (
       <Route path="/invoke">
         <InvokeMachineApp />
       </Route>
-      <Route path="/nested">
-        <NestedMachineApp />
+      <Route path="/hierarchical">
+        <HierarchicalMachineApp />
       </Route>
       <Route path="/parallel">
         <ParallelMachineApp />

@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { useMachine } from '@xstate/react';
-import NestedMachine from '../../machines/SimpleMachine';
+import HierarchicalMachine from '../../machines/hierarchicalMachine';
 import MachineBlock from '../../components/MachineBlock/MachineBlock';
 import '../../App.css';
 
-const NestedMachineApp = () => {
-  const [current, send] = useMachine(NestedMachine, { devTools: true });
-  const [machineStates] = useState(current.configuration[0].states);
+const HierarchicalMachineApp = () => {
+  const [current, send] = useMachine(HierarchicalMachine, { devTools: true });
 
   return (
     <main className="App">
@@ -17,4 +16,4 @@ const NestedMachineApp = () => {
   );
 };
 
-export default NestedMachineApp;
+export default HierarchicalMachineApp;

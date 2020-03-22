@@ -1,11 +1,11 @@
 import { Machine, assign } from 'xstate';
 
 const simpleMachine = Machine({
-  id: 'nestedMachine',
+  id: 'hierarchicalMachine',
   initial: 'one',
   states: {
     one: {
-      id: 'oneNested',
+      id: 'one',
       initial: 'a',
       states: {
         a: {
@@ -27,7 +27,7 @@ const simpleMachine = Machine({
         },
       },
       onDone: {
-        target: 'success',
+        target: 'two',
       },
     },
     two: {
