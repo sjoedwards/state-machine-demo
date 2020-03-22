@@ -2,51 +2,58 @@ import { Machine, assign } from 'xstate';
 
 const parallelMachine = Machine({
   id: 'parallelMachine',
-  initial: 'one',
-  type: 'parallel',
+  initial: 'start',
   states: {
-    one: {
-      id: 'one',
-      initial: 'a',
+    start: {
+      initial: 'one',
+      type: 'parallel',
       states: {
-        a: {
-          on: {
-            COMPLETE_A: 'b'
-          }
+        one: {
+          id: 'one',
+          initial: 'a',
+          states: {
+            a: {
+              on: {
+                COMPLETE_A: 'b'
+              }
+            },
+            b: {
+              on: {
+                COMPLETE_B: 'c'
+              }
+            },
+            c: {
+              type: 'final'
+            }
+          },
         },
-        b: {
-          on: {
-            COMPLETE_B: 'c'
-          }
+        two: {
+          id: 'two',
+          initial: 'd',
+          states: {
+            d: {
+              on: {
+                COMPLETE_D: 'e'
+              }
+            },
+            e: {
+              on: {
+                COMPLETE_E: 'f'
+              }
+            },
+            f: {
+              type: 'final'
+            }
+          },
         },
-        c: {
-          type: 'final'
-        }
       },
+      onDone: {
+        target: 'end',
+        actions: () => console.log('test')
+      }
     },
-    two: {
-      id: 'two',
-      initial: 'd',
-      states: {
-        d: {
-          on: {
-            COMPLETE_D: 'e'
-          }
-        },
-        e: {
-          on: {
-            COMPLETE_E: 'f'
-          }
-        },
-        f: {
-          type: 'final'
-        }
-      },
-    },
-  },
-  onDone: {
-    actions: 'alertDone'
-  },
+    end: {type: 'final'}
+  }
 }, {
   actions: {
     alertDone: () => {

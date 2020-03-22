@@ -21,7 +21,7 @@ const renderBlock = ({ value, done, shouldRenderSend, send }: RenderBlockProps) 
   return (
     <div className="machine__state-item__wrapper">
       <p>
-        Currently in state {value}
+        State: {value}
       </p>
       {shouldRenderSend && !done && (
         <div className="generic__button generic__button__submit">
@@ -43,12 +43,25 @@ const MachineBlock = ({ current, send, shouldRenderSend = true }: MachineBlockPr
     const parentStates = Object.entries(current.value).sort()
 
     const parentStatesMap = parentStates.map(([parentStatekey, parentStateValue], index) => {
+      const isParentStateValueObject = typeof parentStateValue === 'object'
+      const nestedStates = Object.entries(parentStateValue).sort()
+      const nestedStatesMap = nestedStates.map(([nestedStateskey, nestedStatesValue], index) => {
+        return (
+          <div key={index} className="machine__state-item__wrapper">
+            <p>
+              Child State: {nestedStateskey}
+            </p>
+            {renderBlock({ value: nestedStatesValue, done: current.done, shouldRenderSend, send })}
+          </div>
+        )
+      })
       return (
         <div key={index} className="machine__state-item__wrapper">
           <p>
-            Currently in parent state {parentStatekey}
+            Parent State: {parentStatekey}
           </p>
-          {renderBlock({ value: parentStateValue, done: current.done, shouldRenderSend, send })}
+          {!isParentStateValueObject && renderBlock({ value: parentStateValue, done: current.done, shouldRenderSend, send })}
+          {isParentStateValueObject && (<div className='generic__row'>{nestedStatesMap}</div>)}
         </div>
       )
     }
