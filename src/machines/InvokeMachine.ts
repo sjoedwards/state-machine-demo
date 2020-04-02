@@ -46,7 +46,11 @@ const invokeMachine = Machine<InvokeMachineContext, any, any>({
       type: 'final',
     },
     error: {
-      type: 'final',
+      on: {
+        retry: {
+          target: 'two',
+        },
+      },
     },
   },
 });

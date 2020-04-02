@@ -25,7 +25,11 @@ const renderBlock = ({ value, done, shouldRenderSend, send }: RenderBlockProps) 
       </p>
       {shouldRenderSend && !done && (
         <div className="generic__button generic__button__submit">
-          <button type="button" onClick={() => send(event)}>Complete {value}</button>
+          {value === 'error' ? (
+            <button type="button" onClick={() => send('retry')}>Retry</button>
+          ):(
+            <button type="button" onClick={() => send(event)}>Complete {value}</button>
+          )}
         </div>
       )}
       {!shouldRenderSend && !done && (
