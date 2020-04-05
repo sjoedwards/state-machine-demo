@@ -1,6 +1,6 @@
 import { Machine, assign } from 'xstate';
 
-const simpleMachine = Machine({
+const hierarchicalMachine = Machine({
   id: 'hierarchicalMachine',
   initial: 'one',
   states: {
@@ -50,4 +50,4 @@ const simpleMachine = Machine({
   },
 });
 
-export default simpleMachine;
+export default hierarchicalMachine;
