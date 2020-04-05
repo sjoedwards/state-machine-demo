@@ -16,7 +16,7 @@ const GuardedMachineApp = () => {
 
       <div className="generic__row">
         <div className={`generic__button ${ canSkipTwo ? 'generic__button--success' : 'generic__button--error'}`}>
-          <button onClick={() => setCanSkipTwo(!canSkipTwo)}  >Can Skip Two</button>
+          <button onClick={() => setCanSkipTwo(!canSkipTwo)}>Can Skip Two</button>
         </div>
       </div>
         <div className="generic__row">

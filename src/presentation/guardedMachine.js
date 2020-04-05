@@ -1,10 +1,8 @@
-import { Machine, actions } from 'xstate';
-
-const canSkipTwo = (_: any, event: any): boolean => {
-  return event.payload.canSkipTwo
+const canSkipTwo = (_, event) => {
+  return event.canSkipTwo
 }
 
-const guardedMachine = Machine<any, any, any>({
+const guardedMachine = Machine({
   id: 'guardedMachine',
   initial: 'one',
   states: {
@@ -12,8 +10,8 @@ const guardedMachine = Machine<any, any, any>({
       on: {
         COMPLETE_ONE: [
           {
-            target: 'three',
-            cond: 'canSkipTwo'
+          target: 'three',
+          cond: canSkipTwo
           },
           {
             target: 'two',
@@ -37,5 +35,3 @@ const guardedMachine = Machine<any, any, any>({
     canSkipTwo
   }
 });
-
-export default invokeMachine;
