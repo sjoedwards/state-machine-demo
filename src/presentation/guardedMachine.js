@@ -1,37 +1,33 @@
-const canSkipTwo = (_, event) => {
-  return event.canSkipTwo
+const hasRaceInfo = (_, event) => {
+  return event.hasRaceInfo
 }
 
 const guardedMachine = Machine({
   id: 'guardedMachine',
-  initial: 'one',
+  initial: 'trainingInfo',
   states: {
-    one: {
+    trainingInfo: {
       on: {
-        COMPLETE_ONE: [
+        TRAINING_INFO_DONE: [
           {
-          target: 'three',
-          cond: canSkipTwo
+          target: 'previousRaceInfo',
+          cond: hasRaceInfo
           },
           {
-            target: 'two',
+            target: 'next',
           },
         ]
       },
     },
-    two: {
+    previousRaceInfo: {
       on: {
-        COMPLETE_TWO: {
-          target: 'three',
+        COMPLETE_PREVIOUS_RACE_INFO: {
+          target: 'next',
         },
       },
     },
-    three: {
+    next: {
       type: 'final'
     },
   },
-}, {
-  guards: {
-    canSkipTwo
-  }
 });

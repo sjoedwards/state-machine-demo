@@ -20,7 +20,7 @@ const GuardedMachineApp = () => {
         </div>
       </div>
         <div className="generic__row">
-            <MachineBlock current={current} send={((event: any) => send({ type: event, payload: {canSkipTwo: canSkipTwo} }))} />
+            <MachineBlock current={current} send={((event: any) => send(event, {canSkipTwo: canSkipTwo}))} />
         </div>
     </main>
   );

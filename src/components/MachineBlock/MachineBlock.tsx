@@ -72,19 +72,6 @@ const MachineBlock = ({ current, send, shouldRenderSend = true }: MachineBlockPr
 
     );
     return (<>{parentStatesMap}</>)
-    // for (let parentStateValue in current.value) {
-    //   console.log('parentStateValue: ', parentStateValue);
-    //   return (
-    // <div className="generic__row">
-    //   <div className="machine__state-item__wrapper">
-    //     <p>
-    //       Currently in parent state {parentStateValue}
-    //     </p>
-    //     {renderBlock({ value: current.value[parentStateValue], done: current.done, shouldRenderSend, send })}
-    //   </div>
-    // </div>
-    //   )
-    // }
   }
   return (
     renderBlock({ value: current.value, done: current.done, shouldRenderSend, send })

@@ -1,7 +1,11 @@
 import React from 'react'
+import LaceupBanner from '../../components/laceup/laceup-banner/laceup-banner'
 
 const LaceUpMachineApp = () => (
-  <div>LaceUpMachineApp</div>
+  <>
+    <LaceupBanner />
+    <div>LaceUpMachineApp</div>
+  </>
 );
 
 export default LaceUpMachineApp

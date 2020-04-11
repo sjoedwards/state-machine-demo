@@ -1,7 +1,7 @@
 import { Machine, actions } from 'xstate';
 
 const canSkipTwo = (_: any, event: any): boolean => {
-  return event.payload.canSkipTwo
+  return event.canSkipTwo
 }
 
 const guardedMachine = Machine<any, any, any>({
@@ -38,4 +38,4 @@ const guardedMachine = Machine<any, any, any>({
   }
 });
 
-export default invokeMachine;
+export default guardedMachine;

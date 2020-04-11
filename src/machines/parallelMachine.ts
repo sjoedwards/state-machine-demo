@@ -5,10 +5,9 @@ const parallelMachine = Machine({
   initial: 'start',
   states: {
     start: {
-      initial: 'one',
       type: 'parallel',
       states: {
-        one: {
+        1: {
           id: 'one',
           initial: 'a',
           states: {
@@ -27,7 +26,7 @@ const parallelMachine = Machine({
             }
           },
         },
-        two: {
+        2: {
           id: 'two',
           initial: 'd',
           states: {
@@ -46,19 +45,31 @@ const parallelMachine = Machine({
             }
           },
         },
+        3: {
+          id: 'three',
+          initial: 'g',
+          states: {
+            g: {
+              on: {
+                COMPLETE_G: 'h'
+              }
+            },
+            h: {
+              on: {
+                COMPLETE_H: 'i'
+              }
+            },
+            i: {
+              type: 'final'
+            }
+          },
+        },
       },
       onDone: {
         target: 'end',
-        actions: () => console.log('test')
       }
     },
     end: {type: 'final'}
-  }
-}, {
-  actions: {
-    alertDone: () => {
-      console.log('executing?')
-    }
   }
 });
 

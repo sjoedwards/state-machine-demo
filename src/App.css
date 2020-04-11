@@ -105,6 +105,12 @@ main {
   margin: 0 20px;
 }
 
+.laceup__row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 100%;
+}
 
 
 .laceup__grid-item--2 {
