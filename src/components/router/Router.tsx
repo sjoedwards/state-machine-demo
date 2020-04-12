@@ -6,7 +6,7 @@ import {
   Redirect
 } from "react-router-dom";
 
-import {SimpleMachineApp, InvokeMachineApp, HierarchicalMachineApp, ParallelMachineApp, LaceUpMachineApp, GuardedMachineApp} from '../../pages'
+import {SimpleMachineApp, InvokeMachineApp, HierarchicalMachineApp, ParallelMachineApp, LaceUpMachineApp, GuardedMachineApp, ActorMachineApp} from '../../pages'
 
 const Router = () => (
 <BrowserRouter>
@@ -25,6 +25,9 @@ const Router = () => (
       </Route>
       <Route path="/parallel">
         <ParallelMachineApp />
+      </Route>
+      <Route path="/actor">
+        <ActorMachineApp />
       </Route>
       <Route path="/laceup">
         <LaceUpMachineApp />
