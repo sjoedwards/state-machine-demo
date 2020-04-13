@@ -32,7 +32,21 @@ export default ({ current, send }: TrainingInfoInterface) => {
           </div>
           <div className="generic__row">
             <div className="generic__button generic__button__submit">
-              <button type="button" onClick={() => send('NUM_RACES_SUBMIT')}>Continue</button>
+              <button type="button" onClick={() => send('KM_PER_WEEK_SUBMIT')}>Continue</button>
+            </div>
+          </div>
+        </>
+      );
+    }
+    if (matches('trainingInfo.runsPerWeek')) {
+      return (
+        <>
+          <div className="generic__row">
+            <p>How many training runs do you complete a week?</p>
+          </div>
+          <div className="generic__row">
+            <div className="generic__button generic__button__submit">
+              <button type="button" onClick={() => send('RUNS_PER_WEEK_SUBMIT')}>Continue</button>
             </div>
           </div>
         </>
