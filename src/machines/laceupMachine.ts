@@ -1,14 +1,15 @@
 import { Machine, assign } from 'xstate';
+import axios from 'axios';
 
 const wait = (amount = 0) => new Promise(resolve => setTimeout(resolve, amount));
 
-const getData = async (_: any, event: any): Promise<String> => {
-  // In a real application, this might be something like an AJAX call
-  await wait(2000)
-  if (event.payload === true) {
-    throw new Error('error')
+const getData = async (_: any, event: any) => {
+  try {
+    await wait(1000);
+    return axios.get('http://localhost:3001/races')
+  } catch (e) {
+    console.log(e)
   }
-  return 'test'
 }
 
 const calculateRaceAbility = async (_: any, event: any): Promise<String> => {
@@ -41,6 +42,11 @@ const simpleMachine = Machine<LaceupContext, any, any>({
   id: 'laceupMachine',
   initial: 'infoOne',
   context: {races:[], data: '', ability: ''},
+  on: {
+    RETRY_WIZARD: {
+      target: 'loadingWizard',
+    },
+  },
   states: {
     infoOne: {
       on: {
@@ -76,13 +82,7 @@ const simpleMachine = Machine<LaceupContext, any, any>({
         onError: 'errorGettingData'
       }
     },
-    errorGettingData: {
-      on: {
-        RETRY_WIZARD: {
-          target: 'loadingWizard',
-        },
-      },
-    },
+    errorGettingData: {},
     trainingInfo: {
       id: 'trainingInfo',
       initial: 'races',
@@ -223,7 +223,6 @@ const simpleMachine = Machine<LaceupContext, any, any>({
     },
     raceAbility: {
       on: {
-        RETRY_WIZARD: 'loadingWizard',
         DISPLAY_ALL_RACES: {
           target: 'races',
           actions: assign({races:(ctx, event) => filterRacesByAbility(ctx, event)})

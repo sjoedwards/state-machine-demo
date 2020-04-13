@@ -32,6 +32,17 @@ main {
   align-items: center;
   width: 100%;
 }
+
+.util__padding-top--medium {
+  padding-top: 10vh;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .util__padding-top--medium {
+    padding-top: 0;
+  }
+}
 .loader {
   border: 16px solid #f3f3f3; /* Light grey */
   border-top: 16px solid #3498db; /* Blue */
@@ -300,7 +311,6 @@ main {
 }
 
 .laceup__loader__container {
-  padding-top: 25vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
