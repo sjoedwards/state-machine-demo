@@ -8,8 +8,7 @@ interface TrainingInfoInterface {
 
 export default ({ send }: TrainingInfoInterface) => (
   <div className="machine__state-item__wrapper">
-    <div className="generic__button generic__button__submit">
-      TEST
-    </div>
+    <div className="generic__row">
+      </div>
   </div>
 )

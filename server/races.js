@@ -162,4 +162,4 @@ const races = [
   },
 ]
 
-export default races;
+module.exports = races
