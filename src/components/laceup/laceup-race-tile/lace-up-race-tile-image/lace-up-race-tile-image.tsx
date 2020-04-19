@@ -1,6 +1,7 @@
-import React from 'react'
+import React from 'react';
+import { Race } from '../../../../interfaces'
 
-const LaceUpRaceTileImage = props => {
+const LaceUpRaceTileImage = (props: { race: Race }) => {
   const img = props?.race?.image || `https://via.placeholder.com/150`
 
   const customUrl = {

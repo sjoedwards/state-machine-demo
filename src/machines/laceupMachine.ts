@@ -1,15 +1,14 @@
-import { Machine, assign } from 'xstate';
+import { Machine, assign, spawn } from 'xstate';
 import axios from 'axios';
+import { Race } from '../interfaces'
+import raceMachine from './raceMachine'
 
 const wait = (amount = 0) => new Promise(resolve => setTimeout(resolve, amount));
 
 const getData = async (_: any, event: any) => {
-  try {
-    await wait(1000);
-    return axios.get('http://localhost:3001/races')
-  } catch (e) {
-    console.log(e)
-  }
+  await wait(1000);
+  const racesResponse = await axios.get('http://localhost:3001/races')
+  return racesResponse.data
 }
 
 const calculateRaceAbility = async (_: any, event: any): Promise<String> => {
@@ -18,30 +17,29 @@ const calculateRaceAbility = async (_: any, event: any): Promise<String> => {
   if (event.payload === true) {
     throw new Error('error')
   }
-  return 'test'
+  return 'beginner'
 }
 
 const hasRaceInfo = (_: any, event: any): boolean => {
   return event.canSkipTwo
 }
 
-interface Race {
-  ability: String
-}
-
 interface LaceupContext {
   races: Array<Race>,
-  data: String,
   ability: String,
   raceFocused?: Race
 }
 
-const filterRacesByAbility = (ctx:any, event:any): Array<Race> => ctx.races.filter((race: Race) => race.ability === ctx.raceAbility);
+interface RaceEvent {
+  data: Array<Race>
+}
+
+const filterRacesByAbility = (ctx: any, event: any): Array<Race> => ctx.races.filter((race: Race) => race.ability === ctx.raceAbility);
 
 const simpleMachine = Machine<LaceupContext, any, any>({
   id: 'laceupMachine',
   initial: 'infoOne',
-  context: {races:[], data: '', ability: ''},
+  context: { races: [], ability: '' },
   on: {
     RETRY_WIZARD: {
       target: 'loadingWizard',
@@ -76,7 +74,12 @@ const simpleMachine = Machine<LaceupContext, any, any>({
         onDone: {
           target: 'trainingInfo',
           actions: assign({
-            data: (_, event) => event.data
+            races: (_, event) => {
+              return event.data.map((race: Race) => ({
+                ...race,
+                ref: spawn(raceMachine.withContext(race))
+              }));
+            }
           })
         },
         onError: 'errorGettingData'
@@ -200,22 +203,23 @@ const simpleMachine = Machine<LaceupContext, any, any>({
             target: 'end',
           }
         },
-        end: {type: 'final'}
+        end: { type: 'final' }
       },
       onDone: 'calculatingRaceAbility'
     },
     calculatingRaceAbility: {
       invoke: {
-      id: 'calculateRaceAbility',
-      src: calculateRaceAbility,
-      onDone: {
-        target: 'raceAbility',
-        actions: assign({
-          ability: (_, event) => event.data
-        })
-      },
-      onError: 'errorCalculatingRaceAbility'
-    }},
+        id: 'calculateRaceAbility',
+        src: calculateRaceAbility,
+        onDone: {
+          target: 'raceAbility',
+          actions: assign({
+            ability: (_, event) => event.data
+          })
+        },
+        onError: 'errorCalculatingRaceAbility'
+      }
+    },
     errorCalculatingRaceAbility: {
       on: {
         RETRY_CALCULATE_RACE_ABILITY: 'calculatingRaceAbility'
@@ -225,7 +229,7 @@ const simpleMachine = Machine<LaceupContext, any, any>({
       on: {
         DISPLAY_ALL_RACES: {
           target: 'races',
-          actions: assign({races:(ctx, event) => filterRacesByAbility(ctx, event)})
+          actions: assign({ races: (ctx, event) => filterRacesByAbility(ctx, event) })
         },
         DISPLAY_RACES_FOR_ABILITY: 'races',
       },

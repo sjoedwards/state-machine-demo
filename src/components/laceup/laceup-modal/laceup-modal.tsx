@@ -1,12 +1,20 @@
-import Modal from 'react-modal';
+import Modal, {Styles} from 'react-modal';
 import React from 'react';
 import LaceUpModalImage from './laceup-modal-image/laceup-modal-image';
 import LaceUpModalMetrics from './laceup-modal-metrics/laceup-modal-metrics';
 import LaceUpModalDescription from './laceup-modal-description/laceup-modal-description';
+import {Race} from '../../../interfaces'
 
 Modal.setAppElement('html');
 
-const LaceUpModal = props => {
+interface LaceUpModalProps {
+  toggleModal: Function,
+  modalOpen: boolean,
+  customStyle: Styles,
+  race: Race
+}
+
+const LaceUpModal = (props: LaceUpModalProps) => {
   return (
     <Modal
       isOpen={props.modalOpen}

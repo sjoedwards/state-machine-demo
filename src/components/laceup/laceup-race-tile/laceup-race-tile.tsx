@@ -1,16 +1,24 @@
 import React from 'react';
-import star from '../../star.svg'
-import incline from '../../incline.svg'
-import distance from '../../distance.svg'
+import star from '../../../star.svg'
+import incline from '../../../incline.svg'
+import distance from '../../../distance.svg'
 import LaceUpRaceTileImage from './lace-up-race-tile-image/lace-up-race-tile-image'
+import {Race} from '../../../interfaces'
 
-const LaceupRaceTile = props => {
+interface LaceupRaceTileProps {
+  selectTile: Function,
+  race: Race,
+  id: number
+}
+
+const LaceupRaceTile = (props: LaceupRaceTileProps) => {
   return (
     <div className="laceup__grid-item--3 laceup__race-tile__wrapper">
       <div
         onClick={() => props.selectTile(props.id)} id={`race-tile__${props.id}`}
         className="laceup__race-tile__container hvr-grow-shadow"
       >
+
         <LaceUpRaceTileImage race={props.race} />
         <div className="laceup__race-tile__info">
           <p className="laceup__race-tile__title">{props?.race?.title}</p>
