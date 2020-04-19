@@ -26,6 +26,7 @@ const routes = {
   errorUnknown: ({send}: WizardRouterProps) => <Error body="Unknown Error, please retry the wizard" send={send} />,
   calculatingRaceAbility: () => <Loading />,
   raceAbility: ({send, current}: WizardRouterProps) => <RaceAbility current={current} send={send} />,
+  loadingRaces: () => <Loading />,
   races: ({send, current}: WizardRouterProps) => <Races current={current} send={send} />
 }
 
@@ -45,8 +46,10 @@ const LaceUpMachineApp = () => {
   const [current, send] = useMachine(LaceUpMachine, { devTools: true, state: persistedState});
 
   useEffect(() => {
-    const json = JSON.stringify(current)
-    localStorage.setItem('machine', json)
+    if (!current.matches('races')) {
+      const json = JSON.stringify(current)
+      localStorage.setItem('machine', json)
+    }
   },[current])
 
   return (

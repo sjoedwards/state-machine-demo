@@ -30,7 +30,7 @@ export default ({ current, send }: RacesInterface) => {
     const renderRaceTiles = () => {
       return context.races.map((race: Race, index: number) => {
         return (
-          <LaceupRaceTile key={index} id={index} race={race} selectTile={(id: number) => console.log(id)}/>
+          <LaceupRaceTile key={index} id={index} race={race}/>
         )
       })
     }
@@ -40,7 +40,7 @@ export default ({ current, send }: RacesInterface) => {
     )
     return (
       <div className="App">
-        <LaceupModal race={context?.selectedRace} modalOpen={context?.modalOpen} customStyle={customStyle} toggleModal={() => console.log('toggle')}/>
+        <LaceupModal race={context?.selectedRace} modalOpen={context?.modalOpen} customStyle={customStyle} toggleModal={() => send('CLOSE_MODAL')}/>
           <div className="generic__row generic__button generic__button__submit">
             <button type="button" onClick={() => send('RETRY_WIZARD')}>Retry Wizard</button>
           </div>

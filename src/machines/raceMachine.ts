@@ -9,17 +9,8 @@ export default Machine<Race, any, any>({
       on: {
         SELECTED: {
           actions: sendParent((ctx: Race) => ({type: 'SELECTED', race: ctx})),
-          target: 'selected'
         }
       },
     },
-    selected: {
-      on: {
-        UNSELECTED: {
-          actions: sendParent((ctx: Race) => ({type: 'UNSELECTED', race: ctx})),
-          target: 'unselected'
-        }
-      }
-    }
   }
 });

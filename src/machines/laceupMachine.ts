@@ -27,7 +27,8 @@ const hasRaceInfo = (_: any, event: any): boolean => {
 interface LaceupContext {
   races: Array<Race>,
   ability: String,
-  raceFocused?: Race
+  selectedRace?: Race,
+  modalOpen: boolean
 }
 
 interface RaceEvent {
@@ -39,7 +40,7 @@ const filterRacesByAbility = (ctx: any, event: any): Array<Race> => ctx.races.fi
 const simpleMachine = Machine<LaceupContext, any, any>({
   id: 'laceupMachine',
   initial: 'infoOne',
-  context: { races: [], ability: '' },
+  context: { races: [], ability: '', modalOpen: false },
   on: {
     RETRY_WIZARD: {
       target: 'loadingWizard',
@@ -74,12 +75,7 @@ const simpleMachine = Machine<LaceupContext, any, any>({
         onDone: {
           target: 'trainingInfo',
           actions: assign({
-            races: (_, event) => {
-              return event.data.map((race: Race) => ({
-                ...race,
-                ref: spawn(raceMachine.withContext(race))
-              }));
-            }
+            races: (_, event) => event.data
           })
         },
         onError: 'errorGettingData'
@@ -235,10 +231,24 @@ const simpleMachine = Machine<LaceupContext, any, any>({
       },
     },
     races: {
+      entry: assign({
+        races: (context, _) => {
+          return context.races.map((race: Race) => ({
+            ...race,
+            ref: spawn(raceMachine.withContext(race))
+          }));
+        }
+      }),
       on: {
-        RACE_CLICKED: {
+        SELECTED: {
           actions: assign({
-            raceFocused: (ctx, event) => ctx.races[event.data.id]
+            selectedRace: (ctx, event) => event.race,
+            modalOpen: (ctx, event) => !ctx.modalOpen
+          })
+        },
+        'CLOSE_MODAL': {
+          actions: assign({
+            modalOpen: (ctx) => false
           })
         }
       }
@@ -246,7 +256,7 @@ const simpleMachine = Machine<LaceupContext, any, any>({
   }
 }, {
   guards: {
-    hasRaceInfo
+    hasRaceInfo,
   }
 });
 

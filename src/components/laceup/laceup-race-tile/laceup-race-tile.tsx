@@ -1,4 +1,6 @@
 import React from 'react';
+import { useService } from '@xstate/react';
+import {State} from 'xstate';
 import star from '../../../star.svg'
 import incline from '../../../incline.svg'
 import distance from '../../../distance.svg'
@@ -6,16 +8,17 @@ import LaceUpRaceTileImage from './lace-up-race-tile-image/lace-up-race-tile-ima
 import {Race} from '../../../interfaces'
 
 interface LaceupRaceTileProps {
-  selectTile: Function,
   race: Race,
-  id: number
+  id: number,
 }
 
+
 const LaceupRaceTile = (props: LaceupRaceTileProps) => {
+  const [current, send] = useService(props.race.ref)
   return (
     <div className="laceup__grid-item--3 laceup__race-tile__wrapper">
       <div
-        onClick={() => props.selectTile(props.id)} id={`race-tile__${props.id}`}
+        onClick={() => send('SELECTED')} id={`race-tile__${props.id}`}
         className="laceup__race-tile__container hvr-grow-shadow"
       >
 
