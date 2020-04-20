@@ -2,7 +2,7 @@ import { Machine, assign, spawn } from 'xstate';
 import axios from 'axios';
 import { Race } from '../interfaces'
 import raceMachine from './raceMachine'
-import {Duration} from 'moment'
+import { Duration } from 'moment'
 
 const wait = (amount = 0) => new Promise(resolve => setTimeout(resolve, amount));
 
@@ -24,8 +24,8 @@ const calculateRaceAbility = async (_: any, event: any): Promise<String> => {
 const hasPreviousRaces = (context: LaceupContext, _: any): boolean => context.numPreviousRaces >= 3
 
 interface PreviousRun {
-  date: Date,
-  time: Duration,
+  date: number,
+  time: number,
   distance: number
 }
 
@@ -53,7 +53,25 @@ const filterRacesByAbility = (ctx: any, event: any): Array<Race> => ctx.races.fi
 const simpleMachine = Machine<LaceupContext, any, any>({
   id: 'laceupMachine',
   initial: 'infoOne',
-  context: { races: [], ability: '', modalOpen: false, numPreviousRaces: 0, kmPerWeek: 0, runsPerWeek:0 },
+  context: {
+    races: [], ability: '', modalOpen: false, numPreviousRaces: 0, kmPerWeek: 0, runsPerWeek: 0, previousRuns: {
+      previousRunOne: {
+        distance: 0,
+        time: 0,
+        date: 2020
+      },
+      previousRunTwo: {
+        distance: 0,
+        time: 0,
+        date: 2020
+      },
+      previousRunThree: {
+        distance: 0,
+        time: 0,
+        date: 2020
+      }
+    }
+  },
   on: {
     RETRY_WIZARD: {
       target: 'loadingWizard',
@@ -156,17 +174,50 @@ const simpleMachine = Machine<LaceupContext, any, any>({
               states: {
                 yearRace1: {
                   on: {
-                    COMPLETE_YEAR_RACE_1: 'distanceRace1'
+                    COMPLETE_YEAR_RACE_1: 'distanceRace1',
+                    INPUT_YEAR_RACE_1: {
+                      actions: assign({
+                        previousRuns: (ctx:any, event) => ({
+                          ...ctx.previousRuns,
+                          previousRunOne: {
+                            ...ctx.previousRuns.previousRunOne,
+                            date: event.input
+                          }
+                        })
+                      })
+                    }
                   }
                 },
                 distanceRace1: {
                   on: {
-                    COMPLETE_DISTANCE_RACE_1: 'timeRace1'
+                    COMPLETE_DISTANCE_RACE_1: 'timeRace1',
+                    INPUT_DISTANCE_RACE_1: {
+                      actions: assign({
+                        previousRuns: (ctx:any, event) => ({
+                          ...ctx.previousRuns,
+                          previousRunOne: {
+                            ...ctx.previousRuns.previousRunOne,
+                            distance: event.input
+                          }
+                        })
+                      })
+                    }
                   }
                 },
                 timeRace1: {
                   on: {
-                    COMPLETE_TIME_RACE_1: 'infoSubmitRace1'
+                    COMPLETE_TIME_RACE_1: 'infoSubmitRace1',
+                    INPUT_TIME_RACE_1: {
+                      actions: assign({
+                        previousRuns: (ctx:any, event) => ({
+                          ...ctx.previousRuns,
+                          previousRunOne: {
+                            ...ctx.previousRuns.previousRunOne,
+                            time: event.input
+                          }
+                        })
+                      })
+                    }
                   }
                 },
                 infoSubmitRace1: {
@@ -180,17 +231,50 @@ const simpleMachine = Machine<LaceupContext, any, any>({
               states: {
                 yearRace2: {
                   on: {
-                    COMPLETE_YEAR_RACE_2: 'distanceRace2'
+                    COMPLETE_YEAR_RACE_2: 'distanceRace2',
+                    INPUT_YEAR_RACE_2: {
+                      actions: assign({
+                        previousRuns: (ctx:any, event) => ({
+                          ...ctx.previousRuns,
+                          previousRunTwo: {
+                            ...ctx.previousRuns.previousRunTwo,
+                            date: event.input
+                          }
+                        })
+                      })
+                    }
                   }
                 },
                 distanceRace2: {
                   on: {
-                    COMPLETE_DISTANCE_RACE_2: 'timeRace2'
+                    COMPLETE_DISTANCE_RACE_2: 'timeRace2',
+                    INPUT_DISTANCE_RACE_2: {
+                      actions: assign({
+                        previousRuns: (ctx:any, event) => ({
+                          ...ctx.previousRuns,
+                          previousRunTwo: {
+                            ...ctx.previousRuns.previousRunTwo,
+                            distance: event.input
+                          }
+                        })
+                      })
+                    }
                   }
                 },
                 timeRace2: {
                   on: {
-                    COMPLETE_TIME_RACE_2: 'infoSubmitRace2'
+                    COMPLETE_TIME_RACE_2: 'infoSubmitRace2',
+                    INPUT_TIME_RACE_2: {
+                      actions: assign({
+                        previousRuns: (ctx:any, event) => ({
+                          ...ctx.previousRuns,
+                          previousRunTwo: {
+                            ...ctx.previousRuns.previousRunTwo,
+                            time: event.input
+                          }
+                        })
+                      })
+                    }
                   }
                 },
                 infoSubmitRace2: {
@@ -204,17 +288,50 @@ const simpleMachine = Machine<LaceupContext, any, any>({
               states: {
                 yearRace3: {
                   on: {
-                    COMPLETE_YEAR_RACE_3: 'distanceRace3'
+                    COMPLETE_YEAR_RACE_3: 'distanceRace3',
+                    INPUT_YEAR_RACE_3: {
+                      actions: assign({
+                        previousRuns: (ctx:any, event) => ({
+                          ...ctx.previousRuns,
+                          previousRunThree: {
+                            ...ctx.previousRuns.previousRunThree,
+                            date: event.input
+                          }
+                        })
+                      })
+                    }
                   }
                 },
                 distanceRace3: {
                   on: {
-                    COMPLETE_DISTANCE_RACE_3: 'timeRace3'
+                    COMPLETE_DISTANCE_RACE_3: 'timeRace3',
+                    INPUT_DISTANCE_RACE_3: {
+                      actions: assign({
+                        previousRuns: (ctx:any, event) => ({
+                          ...ctx.previousRuns,
+                          previousRunThree: {
+                            ...ctx.previousRuns.previousRunThree,
+                            distance: event.input
+                          }
+                        })
+                      })
+                    }
                   }
                 },
                 timeRace3: {
                   on: {
-                    COMPLETE_TIME_RACE_3: 'infoSubmitRace3'
+                    COMPLETE_TIME_RACE_3: 'infoSubmitRace3',
+                    INPUT_TIME_RACE_3: {
+                      actions: assign({
+                        previousRuns: (ctx:any, event) => ({
+                          ...ctx.previousRuns,
+                          previousRunThree: {
+                            ...ctx.previousRuns.previousRunThree,
+                            time: event.input
+                          }
+                        })
+                      })
+                    }
                   }
                 },
                 infoSubmitRace3: {

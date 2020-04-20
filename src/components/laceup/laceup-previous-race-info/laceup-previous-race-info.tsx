@@ -20,6 +20,9 @@ export default ({ current, send }: PreviousRaceInterface) => {
             <p>Year race run</p>
           </div>
           <div className="generic__row">
+            <input value={current.context.previousRuns[`previousRun${value}`].date} type="number" className="generic__input" onChange={event => send({type: `INPUT_YEAR_RACE_${raceNum}`, input: event.target.value})}></input>
+          </div>
+          <div className="generic__row">
             <div className="generic__button generic__button__submit">
               <button type="button" onClick={() => send(`COMPLETE_YEAR_RACE_${raceNum}`)}>Continue</button>
             </div>
@@ -31,7 +34,10 @@ export default ({ current, send }: PreviousRaceInterface) => {
         return (
           <div key={index} className="machine__state-item__wrapper">
           <div className="generic__row">
-            <p>Distance of race run</p>
+            <p>Distance of race run / Km</p>
+          </div>
+          <div className="generic__row">
+            <input value={current.context.previousRuns[`previousRun${value}`].distance} type="number" className="generic__input" onChange={event => send({type: `INPUT_DISTANCE_RACE_${raceNum}`, input: event.target.value})}></input>
           </div>
           <div className="generic__row">
             <div className="generic__button generic__button__submit">
@@ -45,7 +51,10 @@ export default ({ current, send }: PreviousRaceInterface) => {
         return (
           <div key={index} className="machine__state-item__wrapper">
           <div className="generic__row">
-            <p>Time race completed in</p>
+            <p>Time completed / minutes</p>
+          </div>
+          <div className="generic__row">
+            <input value={current.context.previousRuns[`previousRun${value}`].time} type="number" className="generic__input" onChange={event => send({type: `INPUT_TIME_RACE_${raceNum}`, input: event.target.value})}></input>
           </div>
           <div className="generic__row">
             <div className="generic__button generic__button__submit">
