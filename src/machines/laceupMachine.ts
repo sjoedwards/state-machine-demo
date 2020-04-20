@@ -2,6 +2,7 @@ import { Machine, assign, spawn } from 'xstate';
 import axios from 'axios';
 import { Race } from '../interfaces'
 import raceMachine from './raceMachine'
+import {Duration} from 'moment'
 
 const wait = (amount = 0) => new Promise(resolve => setTimeout(resolve, amount));
 
@@ -20,15 +21,27 @@ const calculateRaceAbility = async (_: any, event: any): Promise<String> => {
   return 'beginner'
 }
 
-const hasRaceInfo = (_: any, event: any): boolean => {
-  return event.canSkipTwo
+const hasPreviousRaces = (context: LaceupContext, _: any): boolean => context.numPreviousRaces >= 3
+
+interface PreviousRun {
+  date: Date,
+  time: Duration,
+  distance: number
 }
 
 interface LaceupContext {
   races: Array<Race>,
   ability: String,
   selectedRace?: Race,
-  modalOpen: boolean
+  modalOpen: boolean,
+  numPreviousRaces: number,
+  kmPerWeek: number,
+  runsPerWeek: number,
+  previousRuns?: {
+    previousRunOne: PreviousRun,
+    previousRunTwo: PreviousRun
+    previousRunThree: PreviousRun
+  }
 }
 
 interface RaceEvent {
@@ -40,7 +53,7 @@ const filterRacesByAbility = (ctx: any, event: any): Array<Race> => ctx.races.fi
 const simpleMachine = Machine<LaceupContext, any, any>({
   id: 'laceupMachine',
   initial: 'infoOne',
-  context: { races: [], ability: '', modalOpen: false },
+  context: { races: [], ability: '', modalOpen: false, numPreviousRaces: 0, kmPerWeek: 0, runsPerWeek:0 },
   on: {
     RETRY_WIZARD: {
       target: 'loadingWizard',
@@ -89,16 +102,31 @@ const simpleMachine = Machine<LaceupContext, any, any>({
         races: {
           on: {
             NUM_RACES_SUBMIT: 'kmPerWeek',
+            PREVIOUS_RACE_INFO_INPUT: {
+              actions: assign({
+                numPreviousRaces: (_, event) => event.input
+              })
+            }
           },
         },
         kmPerWeek: {
           on: {
             KM_PER_WEEK_SUBMIT: 'runsPerWeek',
+            KM_PER_WEEK_INPUT: {
+              actions: assign({
+                kmPerWeek: (_, event) => event.input
+              })
+            }
           },
         },
         runsPerWeek: {
           on: {
             RUNS_PER_WEEK_SUBMIT: 'trainingInfoComplete',
+            RUNS_PER_WEEK_INPUT: {
+              actions: assign({
+                runsPerWeek: (_, event) => event.input
+              })
+            }
           },
         },
         trainingInfoComplete: {
@@ -108,7 +136,7 @@ const simpleMachine = Machine<LaceupContext, any, any>({
       onDone: [
         {
           target: 'previousRaceInfo',
-          cond: 'hasRaceInfo'
+          cond: 'hasPreviousRaces'
         },
         {
           target: 'calculatingRaceAbility',
@@ -256,7 +284,7 @@ const simpleMachine = Machine<LaceupContext, any, any>({
   }
 }, {
   guards: {
-    hasRaceInfo,
+    hasPreviousRaces,
   }
 });
 

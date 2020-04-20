@@ -91,6 +91,14 @@ main {
   background: lightgreen;
 }
 
+.generic__input {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid black;
+  width: 50px
+}
+
 .active {
   background-color: lightgreen;
 }

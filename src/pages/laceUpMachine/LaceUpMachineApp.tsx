@@ -8,6 +8,7 @@ import Info from '../../components/laceup/laceup-info/laceup-info'
 import Loading from '../../components/laceup/laceup-loader/laceup-loader';
 import Error from '../../components/laceup/laceup-error/laceup-error';
 import TrainingInfo from '../../components/laceup/laceup-training-info/laceup-training-info';
+import PreviousRaceInfo from '../../components/laceup/laceup-previous-race-info/laceup-previous-race-info'
 import RaceAbility from '../../components/laceup/laceup-race-ability/laceup-race-abilty'
 import Races from '../../components/laceup/laceup-races/laceup-races'
 
@@ -22,6 +23,7 @@ const routes = {
   infoThree: ({send}: WizardRouterProps) => <Info id={3} body="For best results, answer the questions honestly! Are you ready?" send={send} />,
   loadingWizard: () => <Loading />,
   trainingInfo: ({send, current}: WizardRouterProps) => <TrainingInfo current={current} send={send} />,
+  previousRaceInfo: ({send, current}: WizardRouterProps) => <PreviousRaceInfo current={current} send={send} />,
   errorGettingData: ({send}: WizardRouterProps) => <Error body="Error getting data, please retry the wizard" send={send} />,
   errorUnknown: ({send}: WizardRouterProps) => <Error body="Unknown Error, please retry the wizard" send={send} />,
   calculatingRaceAbility: () => <Loading />,
