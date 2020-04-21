@@ -12,13 +12,55 @@ const getData = async (_: any, event: any) => {
   return racesResponse.data
 }
 
-const calculateRaceAbility = async (_: any, event: any): Promise<String> => {
-  // In a real application, this might be something like an AJAX call
-  await wait(2000)
-  if (event.payload === true) {
-    throw new Error('error')
+const calculateRaceAbility = async (context: LaceupContext, event: any): Promise<String> => {
+  const {kmPerWeek,runsPerWeek, previousRuns} = context
+  const determineNormalisedScore = (score: number, maxValue: number) => {
+    if (score >= maxValue) {
+      return 1
+    } else {
+      return score / maxValue
+    }
   }
-  return 'beginner'
+  const kmPerWeekNormalised = determineNormalisedScore(kmPerWeek, 100)
+  const runsPerWeekNormalised = determineNormalisedScore(runsPerWeek, 7)
+  // Assume for now if they haven't dont 3 runs they score 0
+  const previousRunsNormalised = (() => {
+       const aggScorePrevRaces =  Object.values(previousRuns).map(({distance, time, date}) => {
+        if (time == 0) {
+          return 0
+        }
+        const speedNormalised = determineNormalisedScore((distance/time), 0.25)
+        const ageNormalised = (() => {
+          const runAge = 2020 - date
+            if (runAge <= 0) {
+              return 1
+            } else if (runAge > 10) {
+              return 0
+            } else {
+              return 1 - (runAge / 10)
+            }
+        })()
+        return ((0.7 * speedNormalised) + (0.3 * ageNormalised))
+      }).reduce((total, acc) => total + acc, 0)
+      return aggScorePrevRaces / Object.values(previousRuns).length
+  })()
+  const aggScoreTotal = (kmPerWeekNormalised + runsPerWeekNormalised + previousRunsNormalised) / 3
+  await wait(2000)
+
+  switch (true) {
+    case (aggScoreTotal <= 0.2 ):
+      return 'beginner'
+    case (aggScoreTotal <= 0.4 ):
+      return 'novice'
+    case (aggScoreTotal <= 0.6 ):
+      return 'experienced'
+    case (aggScoreTotal <= 0.8 ):
+      return 'advanced'
+    case (aggScoreTotal <= 1 ):
+      return 'expert'
+    default:
+      return 'beginner'
+  }
 }
 
 const hasPreviousRaces = (context: LaceupContext, _: any): boolean => context.numPreviousRaces >= 3
@@ -37,7 +79,7 @@ interface LaceupContext {
   numPreviousRaces: number,
   kmPerWeek: number,
   runsPerWeek: number,
-  previousRuns?: {
+  previousRuns: {
     previousRunOne: PreviousRun,
     previousRunTwo: PreviousRun
     previousRunThree: PreviousRun
@@ -48,33 +90,38 @@ interface RaceEvent {
   data: Array<Race>
 }
 
+const defaultContext = {
+  races: [], ability: '', modalOpen: false, numPreviousRaces: 0, kmPerWeek: 0, runsPerWeek: 0, previousRuns: {
+    previousRunOne: {
+      distance: 0,
+      time: 0,
+      date: 2020
+    },
+    previousRunTwo: {
+      distance: 0,
+      time: 0,
+      date: 2020
+    },
+    previousRunThree: {
+      distance: 0,
+      time: 0,
+      date: 2020
+    }
+  }
+}
+
 const filterRacesByAbility = (ctx: any, event: any): Array<Race> => ctx.races.filter((race: Race) => race.ability === ctx.raceAbility);
 
 const simpleMachine = Machine<LaceupContext, any, any>({
   id: 'laceupMachine',
   initial: 'infoOne',
-  context: {
-    races: [], ability: '', modalOpen: false, numPreviousRaces: 0, kmPerWeek: 0, runsPerWeek: 0, previousRuns: {
-      previousRunOne: {
-        distance: 0,
-        time: 0,
-        date: 2020
-      },
-      previousRunTwo: {
-        distance: 0,
-        time: 0,
-        date: 2020
-      },
-      previousRunThree: {
-        distance: 0,
-        time: 0,
-        date: 2020
-      }
-    }
-  },
+  context: defaultContext,
   on: {
     RETRY_WIZARD: {
       target: 'loadingWizard',
+      actions: assign ({
+        previousRuns: (ctx,_) => defaultContext.previousRuns
+      })
     },
   },
   states: {
