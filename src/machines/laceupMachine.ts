@@ -72,6 +72,7 @@ interface PreviousRun {
 
 interface LaceupContext {
   races: Array<Race>,
+  racesToDisplay: Array<Race>,
   ability: String,
   selectedRace?: Race,
   modalOpen: boolean,
@@ -85,12 +86,8 @@ interface LaceupContext {
   }
 }
 
-interface RaceEvent {
-  data: Array<Race>
-}
-
 const defaultContext = {
-  races: [], ability: '', modalOpen: false, numPreviousRaces: 0, kmPerWeek: 0, runsPerWeek: 0, previousRuns: {
+  races: [], racesToDisplay: [], ability: '', modalOpen: false, numPreviousRaces: 0, kmPerWeek: 0, runsPerWeek: 0, previousRuns: {
     previousRunOne: {
       distance: 0,
       time: 0,
@@ -414,23 +411,27 @@ const simpleMachine = Machine<LaceupContext, any, any>({
     },
     raceAbility: {
       on: {
+        DISPLAY_RACES_FOR_ABILITY: {
+          target: 'races',
+          actions: assign({ racesToDisplay: (ctx, event) => filterRacesByAbility(ctx, event) })
+        },
         DISPLAY_ALL_RACES: {
           target: 'races',
-          actions: assign({ races: (ctx, event) => filterRacesByAbility(ctx, event) })
-        },
-        DISPLAY_RACES_FOR_ABILITY: 'races',
+          actions: assign({ racesToDisplay: (ctx, _) => ctx.races })
+        }
       },
     },
     races: {
       entry: assign({
-        races: (context, _) => {
-          return context.races.map((race: Race) => ({
+        racesToDisplay: (context, _) => {
+          return context.racesToDisplay.map((race: Race) => ({
             ...race,
             ref: spawn(raceMachine.withContext(race))
           }));
         }
       }),
       on: {
+        BACK_TO_RESULTS: 'raceAbility',
         SELECTED: {
           actions: assign({
             selectedRace: (ctx, event) => event.race,

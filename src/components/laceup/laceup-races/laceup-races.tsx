@@ -28,7 +28,7 @@ export default ({ current, send }: RacesInterface) => {
     } as React.CSSProperties
   }
     const renderRaceTiles = () => {
-      return context.races.map((race: Race, index: number) => {
+      return context.racesToDisplay.map((race: Race, index: number) => {
         return (
           <LaceupRaceTile key={index} id={index} race={race}/>
         )
@@ -43,6 +43,7 @@ export default ({ current, send }: RacesInterface) => {
         <LaceupModal race={context?.selectedRace} modalOpen={context?.modalOpen} customStyle={customStyle} toggleModal={() => send('CLOSE_MODAL')}/>
           <div className="generic__row generic__button generic__button__submit">
             <button type="button" onClick={() => send('RETRY_WIZARD')}>Retry Wizard</button>
+            <button type="button" onClick={() => send('BACK_TO_RESULTS')}>Back to results</button>
           </div>
           <div className="main laceup__row">
             {context?.races?.length ? renderRaceTiles() : renderNoRacesFound()}
