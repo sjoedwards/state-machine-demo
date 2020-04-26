@@ -25,7 +25,7 @@ const calculateRaceAbility = async (context: LaceupContext, event: any): Promise
   // Assume for now if they haven't dont 3 runs they score 0
   const previousRunsNormalised = (() => {
       const aggScorePrevRaces =  Object.values(previousRuns).map(({distance, time, date}) => {
-        if (time == 0) {
+        if (time === 0) {
           return 0
         }
         const speedNormalised = determineNormalisedScore((distance/time), 0.25)

@@ -7,8 +7,7 @@ interface RaceAbilityInterface {
 }
 
 export default ({ current, send }: RaceAbilityInterface) => {
-  const state = current.value;
-  const { matches, context } = current;
+  const { context } = current;
 
 
   return (

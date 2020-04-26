@@ -1,6 +1,5 @@
 import React from 'react';
 import { useService } from '@xstate/react';
-import {State} from 'xstate';
 import star from '../../../star.svg'
 import incline from '../../../incline.svg'
 import distance from '../../../distance.svg'

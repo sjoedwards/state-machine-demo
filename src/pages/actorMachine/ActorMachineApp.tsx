@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useMachine } from '@xstate/react';
 import RaceMachineApp from './RaceMachineApp';
 
-import MachineBlock from '../../components/MachineBlock/MachineBlock';
 import '../../App.css';
 
 import ActorMachine from '../../machines/actorMachine';
 
 const ActorMachineApp = () => {
-  const [current, send] = useMachine(ActorMachine, { devTools: true });
+  const [current] = useMachine(ActorMachine, { devTools: true });
 
   return (
     <main className="App">

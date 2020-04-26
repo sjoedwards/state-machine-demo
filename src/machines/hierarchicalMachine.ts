@@ -1,4 +1,4 @@
-import { Machine, assign } from 'xstate';
+import { Machine } from 'xstate';
 
 const hierarchicalMachine = Machine({
   id: 'hierarchicalMachine',

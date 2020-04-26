@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useMachine } from '@xstate/react';
 import ParallelMachine from '../../machines/parallelMachine';
 import MachineBlock from '../../components/MachineBlock/MachineBlock';

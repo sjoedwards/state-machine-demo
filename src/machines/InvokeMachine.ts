@@ -1,5 +1,4 @@
-import { Machine, actions, assign } from 'xstate';
-const { escalate } = actions;
+import { Machine, assign } from 'xstate';
 
 const wait = (amount = 0) => new Promise(resolve => setTimeout(resolve, amount));
 

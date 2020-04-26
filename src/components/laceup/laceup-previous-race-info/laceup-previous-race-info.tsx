@@ -7,7 +7,6 @@ interface PreviousRaceInterface {
 
 
 export default ({ current, send }: PreviousRaceInterface) => {
-  const state = current.value;
   const {matches} = current
   const renderPreviousRaceInfo = () => {
     return ['One', 'Two', 'Three'].map((value, index) => {

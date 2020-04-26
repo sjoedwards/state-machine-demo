@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useMachine } from '@xstate/react';
 import HierarchicalMachine from '../../machines/hierarchicalMachine';
 import MachineBlock from '../../components/MachineBlock/MachineBlock';

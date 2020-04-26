@@ -1,4 +1,4 @@
-import { Machine, actions } from 'xstate';
+import { Machine } from 'xstate';
 
 const canSkipTwo = (_: any, event: any): boolean => {
   return event.canSkipTwo

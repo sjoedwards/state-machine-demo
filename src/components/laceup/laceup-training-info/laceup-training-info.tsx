@@ -6,7 +6,6 @@ interface TrainingInfoInterface {
 }
 
 export default ({ current, send }: TrainingInfoInterface) => {
-  const state = current.value;
   const {matches} = current
 
   const renderTrainingInfoPanel = () => {
