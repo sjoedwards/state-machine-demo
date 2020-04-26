@@ -10,7 +10,6 @@ export default ({ current, send }: PreviousRaceInterface) => {
   const state = current.value;
   const {matches} = current
   const renderPreviousRaceInfo = () => {
-    let i: number = 1;
     return ['One', 'Two', 'Three'].map((value, index) => {
       const raceNum = index + 1
       if (matches(`previousRaceInfo.start.prevRace${value}.yearRace${raceNum}`)) {
@@ -76,6 +75,9 @@ export default ({ current, send }: PreviousRaceInterface) => {
 
   return (
   <div className="machine__state-item__wrapper">
+    <div className="generic__row">
+      <p>Enter info for the last three races you have run</p>
+    </div>
     <div className="generic__row">
     {renderPreviousRaceInfo()}
     </div>

@@ -2,7 +2,6 @@ import { Machine, assign, spawn } from 'xstate';
 import axios from 'axios';
 import { Race } from '../interfaces'
 import raceMachine from './raceMachine'
-import { Duration } from 'moment'
 
 const wait = (amount = 0) => new Promise(resolve => setTimeout(resolve, amount));
 
@@ -25,7 +24,7 @@ const calculateRaceAbility = async (context: LaceupContext, event: any): Promise
   const runsPerWeekNormalised = determineNormalisedScore(runsPerWeek, 7)
   // Assume for now if they haven't dont 3 runs they score 0
   const previousRunsNormalised = (() => {
-       const aggScorePrevRaces =  Object.values(previousRuns).map(({distance, time, date}) => {
+      const aggScorePrevRaces =  Object.values(previousRuns).map(({distance, time, date}) => {
         if (time == 0) {
           return 0
         }
@@ -110,7 +109,7 @@ const defaultContext = {
   }
 }
 
-const filterRacesByAbility = (ctx: any, event: any): Array<Race> => ctx.races.filter((race: Race) => race.ability === ctx.raceAbility);
+const filterRacesByAbility = (ctx: any, event: any): Array<Race> => ctx.races.filter((race: Race) => race.ability === ctx.ability);
 
 const simpleMachine = Machine<LaceupContext, any, any>({
   id: 'laceupMachine',

@@ -1,8 +1,8 @@
-
 const races = [
   {
     title: 'Boston Marathon',
     image:'/boston.png',
+    ability: 'expert',
     distance: {
       short: '42.2K',
       long: 'Full Marathon'
@@ -19,6 +19,7 @@ const races = [
   {
     title: 'Great North Run',
     image:'/great-north-run.jpg',
+    ability: 'experienced',
     distance: {
       short: '21.1K',
       long: 'Half Marathon'
@@ -35,6 +36,7 @@ const races = [
   {
     title: 'Leeds Half Marathon',
     image:'/leeds-half-marathon.jpg',
+    ability: 'experienced',
     distance: {
       short: '21.1K',
       long: 'Half Marathon'
@@ -50,6 +52,7 @@ const races = [
   },
   {
     title: 'London Marathon',
+    ability: 'advanced',
     image:'/london-marathon.jpg',
     distance: {
       short: '42.2K',
@@ -66,6 +69,7 @@ const races = [
   },
   {
     title: 'Leeds Abbey Dash',
+    ability: 'novice',
     image:'/leeds-abbey-dash.jpg',
     distance: {
       short: '10K',
@@ -82,6 +86,7 @@ const races = [
   },
   {
     title: 'Paris Marathon',
+    ability: 'advanced',
     image:'/paris-marathon.jpg',
     distance: {
       short: '42.2K',
@@ -98,6 +103,7 @@ const races = [
   },
   {
     title: 'York 10K',
+    ability: 'beginner',
     image:'/york-10k.jpg',
     distance: {
       short: '10K',
@@ -114,6 +120,7 @@ const races = [
   },
   {
     title: 'The Marathon du Médoc',
+    ability: 'advanced',
     image: '/marathon-du-medoc.jpg',
     distance: {
       short: '42.2K',
@@ -130,6 +137,7 @@ const races = [
   },
   {
     title: 'Chester Marathon',
+    ability: 'advanced',
     image:'/chester-marathon.jpg',
     distance: {
       short: '42.2K',
@@ -146,6 +154,7 @@ const races = [
   },
   {
     title: 'Bath Half Marathon',
+    ability: 'novice',
     image:'/bath-half-marathon.jpg',
     distance: {
       short: '21.1K',
