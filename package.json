@@ -15,7 +15,7 @@
     "@xstate/inspect": "^0.4.1",
     "@xstate/react": "^0.8.1",
     "add": "^2.0.6",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "moment": "^2.24.0",
     "query-string": "^6.10.1",
     "react": "^16.12.0",
