@@ -4,7 +4,7 @@ export interface Race {
   ability: String
   title: String
   image: String
-  ref: Interpreter<any>,
+  ref: Interpreter<Race>,
   distance: {
     short: Number,
     long: String
